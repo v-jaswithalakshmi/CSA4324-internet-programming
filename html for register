@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Pet Adoption</h1>
+    <center>
+    <nav>
+        <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pets.html">View Pets</a></li>
+        <li><a href="adopt.html">Adopt</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html">About</a></li>
+        </ul>
+    </nav>
+<h2>Registration Form</h2>
+<div>
+<form method="post" action="login1.php">
+<input type="hidden" name="action" value="submit_registration">
+<label for="name">Name:</label><br>
+<input type="text" id="name" name="name"><br><br>
+
+<label for="email">Email:</label><br>
+<input type="email" id="email" name="email"><br><br>
+<label for="username">Username:</label><br>
+<input type="text" id="username" name="username"><br><br>
+
+
+<label for="password">Password:</label><br>
+<input type="password" id="password" name="password"><br><br>
+
+
+<label for="phonenumber">Phone Number:</label><br>
+<input type="text" id="phonenumber" name="phonenumber"><br><br>
+
+>
+
+</div>
+
+<input type="submit" value="Submit">
+</form>
+</center
