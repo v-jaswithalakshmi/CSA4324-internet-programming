@@ -1,0 +1,54 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbanme = "register";
+$conn = new mysqli($servername,$username,$password,$dbanme);
+if($conn->connect_error){
+    die("Connection Failed:" .$conn->connect_error);
+}
+//Handle form submission
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $destination = $_POST["username"];
+    $departure_date = $_POST["password"];
+    $return_date = $_POST["phonenumber"];
+    //prepare and execute the database insertion
+    $sql = "INSERT INTO petAdoption(name, email, username, password, phonenumber)
+     VALUES ('$name','$email','$username','$password','$phonenumber')";
+     if($conn->query($sql) == TRUE){
+        echo "registration Successfully";
+     }else{
+        echo "Error: " .$sql . "<br>" .$conn->error;
+     }
+}
+$conn->close();
+?>
+[20/03, 2:21 pm] nishida: $sql = "SELECT * FROM petAdoption";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // Output data of each row
+    echo "<table border='1'>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>username</th>
+                <th>password</th>
+                <th>phonenumber</th>
+            </tr>";
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>
+                <td>" . $row["name"] . "</td>
+                <td>" . $row["email"] . "</td>
+                <td>" . $row["username"] . "</td>
+                <td>" . $row["password"] . "</td>
+                <td>" . $row["phonenumber"] . "</td>
+              </tr>";
+    }
+    echo "</table>";
+} else {
+    echo "No pets found";
+}
+$conn->close();
+?>
